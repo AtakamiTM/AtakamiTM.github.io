@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio - Projekty, GitHub, TikTok">
+  <title>Portfolio - Kamil Nowak</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+  <script src="https://kit.fontawesome.com/0fa73c72a3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <center><header class="header">
+        <div class="container profile">
+          <div class="avatar">
+            <img src="./img/Logo.png" alt="Avatar" />
+          </div>
+          <div class="logo">
+            <h1>Kamil Nowak</h1>
+            <p class="tagline">Self-taught Developer</p>
+          </div>
+        </div>
+      </header></center>
+  <main>
+    <section id="projekty" class="projects">
+      <div class="container">
+        <h2>Moje Projekty</h2>
+        <div class="project-cards">
+          <div class="project-card">
+            <h3>Strona o Valorant</h3>
+            <center><div class="project-image" style="background-image: url('./img/projekt1.png');"></div></center>
+            <div class="project-buttons">
+              <a href="#" class="button show-description" data-project="1">Opis</a>
+              <a href="./Projekt1/index.html" class="button" target="_blank">Podgląd</a>
+            </div>
+            <div class="project-description" id="project-description-1">
+              <button class="close-btn" data-project="1">&times;</button>
+              <p>Strona internetowa o Valorant na potrzeby szkolnego projektu. Chciałem, aby wyróżniała się przede wszystkim atrakcyjnym wyglądem i dynamicznymi animacjami, ponieważ zależało Ci na estetyce i interaktywności strony. Skupiłeś się na efektach wizualnych, takich jak płynne przejścia, animacje elementów oraz nowoczesny design, aby nadać jej profesjonalny wygląd. Chociaż strona zawierała również bazę danych, to większą uwagę poświęciłeś frontendowi, aby zapewnić użytkownikom przyjemne wrażenia wizualne i płynne działanie interfejsu.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Strona Zagraj.se</h3>
+            <center><div class="project-image" style="background-image: url('./img/projekt2.png');"></div></center>
+            <div class="project-buttons">
+              <a href="#" class="button show-description" data-project="2">Opis</a>
+              <a href="https://zagraj.se" class="button" target="_blank">Podgląd</a>
+            </div>
+            <div class="project-description" id="project-description-2">
+              <button class="close-btn" data-project="2">&times;</button>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Strona z bazą Danych</h3>
+            <center><div class="project-image" style="background-image: url('./img/projekt3.png');"></div></center>
+            <div class="project-buttons">
+              <a href="#" class="button show-description" data-project="1">Opis</a>
+              <a href="./Projekt2/szkola.html" class="button" target="_blank">Podgląd</a>
+            </div>
+            <div class="project-description" id="project-description-1">
+              <button class="close-btn" data-project="1">&times;</button>
+              <p>Strona nternetowa z bazą danych, przypominającą coś w rodzaju dziennika elektronicznego. W przeciwieństwie do poprzedniego projektu, tutaj skupiłeś się głównie na połączeniu z bazą danych i funkcjonalności backendowej. Głównym celem było stworzenie systemu, który umożliwia przechowywanie, przetwarzanie i pobieranie danych użytkowników w sposób efektywny i bezpieczny. Zadbałem o poprawne zapytania do bazy, autoryzację użytkowników oraz mechanizmy zapisu i odczytu danych. Strona miała działać stabilnie i umożliwiać sprawną obsługę zapisów, edycji oraz wyświetlania informacji. W tym projekcie bardziej zależało Ci na solidnym działaniu systemu niż na samym wyglądzie, chociaż interfejs nadal pozostawał przejrzysty i intuicyjny.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Grafiki</h3>
+          <div class="gallery">
+            <div class="gallery-wrapper">
+              <button class="gallery-prev">&#10094;</button>
+              <div class="gallery-images">
+                <img src="./img/projekt4-1.png" class="gallery-img active" alt="Projekt 1">
+                <img src="./img/projekt4-2.png" class="gallery-img" alt="Projekt 2">
+                <img src="./img/projekt4-3.png" class="gallery-img" alt="Projekt 3">
+                <img src="./img/projekt4-4.png" class="gallery-img" alt="Projekt 4">
+              </div>
+              <button class="gallery-next">&#10095;</button>
+            </div>
+            <div class="project-buttons">
+            <div class="gallery-thumbnails">
+              <img src="./img/projekt4-1.png" class="thumb active" data-index="0" alt="Miniatura 1">
+              <img src="./img/projekt4-2.png" class="thumb" data-index="1" alt="Miniatura 2">
+              <img src="./img/projekt4-3.png" class="thumb" data-index="2" alt="Miniatura 3">
+              <img src="./img/projekt4-4.png" class="thumb" data-index="2" alt="Miniatura 4">
+            </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="social-icons">
+        <a href="https://github.com/AtakamiTM" target="_blank" class="social-icon github"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.tiktok.com/@pan.nome" target="_blank" class="social-icon tiktok"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=100022499177755" target="_blank" class="social-icon tiktok"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+      </div>
+      <p>&copy; 2025 Imię Nazwisko - Wszystkie prawa zastrzeżone</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SZKOLA-PODRÓBA LIBRUS SYNERGIA</title>
+    <style>
+        body {
+            background-color: #000;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #b50000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content h2 {
+            color: #fff;
+            font-size: 28px;
+            text-align: center;
+            background-color: #b50000;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+        }
+
+        .form-container label {
+            font-size: 16px;
+            display: block;
+            color: white;
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #b50000;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #b50000;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .form-container button:hover {
+            background-color: #8b0000;
+        }
+
+        footer {
+            background-color: #b50000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #222;
+            color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #b50000;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #b50000;
+            color: white;
+        }
+    </style>
+</head>
+<script src="https://kit.fontawesome.com/0fa73c72a3.js" crossorigin="anonymous"></script>
+<body>
+
+    <!-- Nagłówek -->
+    <header>
+        <h1>SZKOLA-PODRÓBA LIBRUS SYNERGIA</h1>
+    </header>
+
+    <div class="content">
+        <h2>Dodawanie danych do bazy</h2>
+
+        <!-- Formularz dodawania ucznia -->
+        <center><h3><i class="fa-solid fa-user-plus"></i> Dodaj Ucznia</h3></center>
+        <form action="dodaj_ucznia.php" method="POST" class="form-container">
+            Imię: <input type="text" name="imie" required><br>
+            Nazwisko: <input type="text" name="nazwisko" required><br>
+            Data urodzenia: <input type="date" name="data_urodzenia" required><br>
+            Adres: <input type="text" name="adres" required><br>
+            ID klasy: <input type="number" name="id_klasy" required><br>
+            <input type="submit" name="add_uczen" value="Dodaj ucznia">
+        </form>
+
+        <!-- Formularz dodawania nauczyciela -->
+        <center><h3><i class="fa-solid fa-user-plus"></i> Dodaj Nauczyciela</h3></center>
+        <form action="dodaj_nauczyciela.php" method="POST" class="form-container">
+            Imię: <input type="text" name="imie" required><br>
+            Nazwisko: <input type="text" name="nazwisko" required><br>
+            Przedmiot: <input type="text" name="przedmiot" required><br>
+            <input type="submit" name="add_nauczyciel" value="Dodaj nauczyciela">
+        </form>
+
+        <!-- Formularz dodawania klasy -->
+        <center><h3><i class="fa-solid fa-people-group"></i> Dodaj Klasę</h3></center>
+        <form action="dodaj_klase.php" method="POST" class="form-container">
+            Nazwa klasy: <input type="text" name="nazwa_klasy" required><br>
+            Rok rozpoczęcia: <input type="number" name="rok_rozpoczecia" required><br>
+            ID wychowawcy: <input type="number" name="id_wychowawcy" required><br>
+            <input type="submit" name="add_klasa" value="Dodaj klasę">
+        </form>
+
+        <!-- Formularz dodawania przedmiotu -->
+        <center><h3><i class="fa-solid fa-terminal"></i> Dodaj Przedmiot</h3></center>
+        <form action="dodaj_przedmiot.php" method="POST" class="form-container">
+            Nazwa przedmiotu: <input type="text" name="nazwa_przedmiotu" required><br>
+            <input type="submit" name="add_przedmiot" value="Dodaj przedmiot">
+        </form>
+
+        <!-- Formularz dodawania ocen -->
+        <center><h3><i class="fa-solid fa-terminal"></i> Dodaj Ocenę</h3></center>
+        <form action="dodaj_ocene.php" method="POST" class="form-container">
+            Uczeń:
+            <select name="id_ucznia" required>
+                <?php foreach ($uczniowie as $uczen): ?>
+                    <option value="<?= $uczen['ID_ucznia'] ?>"><?= $uczen['Imie'] . " " . $uczen['Nazwisko'] ?></option>
+                <?php endforeach; ?>
+            </select><br>
+            Przedmiot:
+            <select name="id_przedmiotu" required>
+                <?php foreach ($przedmioty as $przedmiot): ?>
+                    <option value="<?= $przedmiot['ID_przedmiotu'] ?>"><?= $przedmiot['Nazwa_przedmiotu'] ?></option>
+                <?php endforeach; ?>
+            </select><br>
+            Ocena:
+            <input type="text" name="wartosc" required><br>
+            <input type="submit" name="add_ocena" value="Dodaj ocenę">
+        </form>
+
+       
+        <!-- Lista uczniów -->
+        <center><h3><i class="fa-solid fa-list"></i> Lista Uczniów</h3></center>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Data urodzenia</th>
+                <th>Adres</th>
+                <th>ID klasy</th>
+            </tr>
+            <?php foreach ($uczniowie as $uczen): ?>
+                <tr>
+                    <td><?= $uczen['ID_ucznia'] ?></td>
+                    <td><?= $uczen['Imie'] ?></td>
+                    <td><?= $uczen['Nazwisko'] ?></td>
+                    <td><?= $uczen['Data_urodzenia'] ?></td>
+                    <td><?= $uczen['Adres'] ?></td>
+                    <td><?= $uczen['ID_klasy'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+        <!-- Lista nauczycieli -->
+        <center><h3><i class="fa-solid fa-list"></i> Lista Nauczycieli</h3></center>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Przedmiot</th>
+            </tr>
+            <?php foreach ($nauczyciele as $nauczyciel): ?>
+                <tr>
+                    <td><?= $nauczyciel['ID_nauczyciela'] ?></td>
+                    <td><?= $nauczyciel['Imie'] ?></td>
+                    <td><?= $nauczyciel['Nazwisko'] ?></td>
+                    <td><?= $nauczyciel['Przedmiot'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+        <!-- Lista klas -->
+        <center><h3><i class="fa-solid fa-list"></i> Lista Klas</h3></center>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nazwa klasy</th>
+                <th>Rok rozpoczęcia</th>
+                <th>ID wychowawcy</th>
+            </tr>
+            <?php foreach ($klasy as $klasa): ?>
+                <tr>
+                    <td><?= $klasa['ID_klasy'] ?></td>
+                    <td><?= $klasa['Nazwa_klasy'] ?></td>
+                    <td><?= $klasa['Rok_rozpoczecia'] ?></td>
+                    <td><?= $klasa['ID_wychowawcy'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+        <!-- Lista przedmiotów -->
+        <center><h3><i class="fa-solid fa-list"></i> Lista Przedmiotów</h3></center>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nazwa przedmiotu</th>
+            </tr>
+            <?php foreach ($przedmioty as $przedmiot): ?>
+                <tr>
+                    <td><?= $przedmiot['ID_przedmiotu'] ?></td>
+                    <td><?= $przedmiot['Nazwa_przedmiotu'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+
+        <div class="footer-text">
+            <p>2025 SZKOLA-PODRÓBA LIBRUS SYNERGIA. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </div>
+</body>
+</html>
